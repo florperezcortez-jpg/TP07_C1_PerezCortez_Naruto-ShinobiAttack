@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FondoLejano
+    uniqueID: 3418920371
+    locked: 0
+  - name: FondoMedio
+    uniqueID: 671629611
+    locked: 0
+  - name: ondoCercano
+    uniqueID: 20363085
+    locked: 0
   - name: Background
     uniqueID: 993617899
     locked: 0
