@@ -13,7 +13,6 @@ public class PlayerAnimation : MonoBehaviour
         player = GetComponent<PlayerController>();
 
     }
-
     private void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
