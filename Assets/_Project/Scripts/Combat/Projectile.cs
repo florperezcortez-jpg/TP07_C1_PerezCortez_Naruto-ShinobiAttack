@@ -5,8 +5,10 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifetime = 2f;
+    [SerializeField] private int damage = 1;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private EnemyHealth enemy;
 
     private void Awake()
     {
@@ -18,6 +20,19 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, lifetime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        enemy = other.GetComponent<EnemyHealth>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+            Destroy(gameObject);
+
+
+        }
+
     }
     public void SetDirection(float direction)
     {
