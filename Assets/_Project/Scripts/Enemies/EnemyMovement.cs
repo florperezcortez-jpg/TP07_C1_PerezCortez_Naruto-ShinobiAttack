@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private float detectionRange = 6f;
     [SerializeField] private float stopDistance = 0.8f;
+    [SerializeField] private float despawnDistance = 25f;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Transform target;
@@ -47,5 +48,15 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }
+
+        if (distance > despawnDistance || transform.position.y < -20f)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+    public void Alert()
+    {
+        hasDetected = true;
     }
 }
