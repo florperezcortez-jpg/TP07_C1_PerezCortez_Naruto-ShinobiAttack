@@ -18,11 +18,11 @@ public class ParallaxBackground : MonoBehaviour
     [SerializeField] private Transform mainCamera; // Referencia a la cámara principal
 
     private Vector3 lastCameraPosition; // Guarda la posición que tenía la cámara en el frame anterior
-
+    private float[] tileWidths;
     private void Start()
     {
         // Si no asignaste la cámara manualmente en el Inspector, la busca automáticamente
-        if (mainCamera == null)
+       
             if (mainCamera == null)
             {
                 mainCamera = Camera.main.transform;
@@ -31,6 +31,20 @@ public class ParallaxBackground : MonoBehaviour
         if (mainCamera != null)
         {
             lastCameraPosition = mainCamera.position;
+        }
+
+        tileWidths = new float[parallaxLayers.Length];
+        for (int i = 0; i < parallaxLayers.Length; i++)
+        {
+            SpriteRenderer layerSprite = parallaxLayers[i].layerRenderer;
+
+            if (layerSprite == null)
+                continue;
+
+            Vector2 spriteSize = layerSprite.sprite.bounds.size;
+            layerSprite.drawMode = SpriteDrawMode.Tiled;
+            layerSprite.size = new Vector2(spriteSize.x *5f, spriteSize.y);
+            tileWidths[i] = spriteSize.x * layerSprite.transform.lossyScale.x;
         }
     }
     // LateUpdate se ejecuta DESPUÉS de que el jugador y la cámara se hayan movido en Update
@@ -54,8 +68,15 @@ public class ParallaxBackground : MonoBehaviour
                 layer.position += new Vector3(
                     cameraDelta.x * (1f - parallaxLayers[i].parallaxFactor),
                     0f,
-                    0f
-                );
+                    0f);
+
+                float offset = mainCamera.position.x - layer.position.x;
+
+                if (offset > tileWidths[i])
+                    layer.position += new Vector3(tileWidths[i], 0f, 0f);
+                else if (offset < -tileWidths[i])
+                    layer.position -= new Vector3(tileWidths[i], 0f, 0f);
+               
             }
         }
         // Actualiza la posición anterior de la cámara para el siguiente frame
