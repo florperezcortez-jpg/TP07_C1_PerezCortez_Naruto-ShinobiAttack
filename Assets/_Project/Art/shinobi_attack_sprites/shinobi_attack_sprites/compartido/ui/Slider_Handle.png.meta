@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 822c2fe3f4313344092528f0addb755d
+guid: fd0081a903ff2a54d9c027d1ecaad3f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -13448654439004587
-    second: logo_shinobi_attack_0
+      213: 4227581674880542206
+    second: Slider_Handle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: logo_shinobi_attack_0
+      name: Slider_Handle_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1
-        width: 174
-        height: 117
+        width: 270
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 556c471258830dff0800000000000000
-      internalID: -13448654439004587
+      spriteID: ef5a43672236baa30800000000000000
+      internalID: 4227581674880542206
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      logo_shinobi_attack_0: -13448654439004587
+      Slider_Handle_0: 4227581674880542206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
