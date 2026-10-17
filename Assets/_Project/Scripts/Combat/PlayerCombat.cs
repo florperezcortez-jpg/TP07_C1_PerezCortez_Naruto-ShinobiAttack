@@ -41,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("Attack");
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, projectilePrefab.transform.rotation);
         float direction = Mathf.Sign(firePoint.localPosition.x);
-        projectile.GetComponent<Projectile>().SetDirection(direction);
+        projectile.GetComponent<Projectile>() .SetDirection(direction);
+        AudioManager.Instance.PlayShoot();
     }
 }

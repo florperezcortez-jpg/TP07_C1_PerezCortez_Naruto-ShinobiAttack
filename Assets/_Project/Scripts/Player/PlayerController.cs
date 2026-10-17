@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (Jump.action.WasPressedThisFrame() && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            AudioManager.Instance.PlayJump();
         }
 
         Flip();
