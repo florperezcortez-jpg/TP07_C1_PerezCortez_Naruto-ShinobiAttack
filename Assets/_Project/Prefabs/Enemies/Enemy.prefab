@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 4668351609634296168}
   - component: {fileID: 500486184008678771}
   - component: {fileID: 5968779777150332839}
-  - component: {fileID: 5990513551956221040}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -92,7 +91,7 @@ SpriteRenderer:
   m_SortingLayer: 7
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5657faaec6c68d140bec978e288acf8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4df68668ce6149748acfe6bc80e4d5ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,13 +139,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.15, y: 3.2}
+    oldSize: {x: 2.511111, y: 3.4222221}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.15, y: 3.2}
+  m_Size: {x: 2.511111, y: 3.4222221}
   m_EdgeRadius: 0
 --- !u!50 &482812747726986209
 Rigidbody2D:
@@ -190,7 +189,7 @@ MonoBehaviour:
   maxHealth: 3
   scoreValue: 100
   healthBar: {fileID: 3909835594141996754}
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 2820181731104919618, guid: 5d6f939eaef52e248ab35f3b4dda5ab6, type: 3}
 --- !u!114 &7140742738502566876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,24 +267,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDrop
   lifePrefab: {fileID: 5803315791888142111, guid: b78e15911df889b42be701c2232be084, type: 3}
   ramenPrefab: {fileID: 6914786361359697016, guid: 7ea7652542a4f514995ef8439db3af48, type: 3}
-  lifeChance: 0.15
+  chakraPrefab: {fileID: 6914786361359697016, guid: 71f17be9f4eca7e44869b17a708d1b33, type: 3}
+  lifeChance: 0.2
   ramenChance: 0.4
---- !u!114 &5990513551956221040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2153200416793828023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c010f77ba19e736429f06cd019474175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDrop
-  lifePrefab: {fileID: 5803315791888142111, guid: b78e15911df889b42be701c2232be084, type: 3}
-  ramenPrefab: {fileID: 6914786361359697016, guid: 7ea7652542a4f514995ef8439db3af48, type: 3}
-  lifeChance: 0.15
-  ramenChance: 0.4
+  chakraChance: 0.15
 --- !u!1 &4659388625918727623
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.8}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5970146820550048056
@@ -604,6 +589,18 @@ PrefabInstance:
     - target: {fileID: 2820181731104919618, guid: 5d6f939eaef52e248ab35f3b4dda5ab6, type: 3}
       propertyPath: m_Name
       value: DeathEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607073652565841580, guid: 5d6f939eaef52e248ab35f3b4dda5ab6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607073652565841580, guid: 5d6f939eaef52e248ab35f3b4dda5ab6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607073652565841580, guid: 5d6f939eaef52e248ab35f3b4dda5ab6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.6226415
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

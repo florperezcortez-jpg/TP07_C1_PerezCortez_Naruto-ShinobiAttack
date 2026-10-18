@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Naruto_Chakra_Override
+  m_Controller: {fileID: 9100000, guid: 074914b0e1ae71d4b8ad71191a1520da, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 2b20f54ac244eb64fb0f0b6061da7d59, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c89437f429220814c9cb31f82b4c5bb8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d20025cca2ed07545a63c0446d2ecb83, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 68c03e43ec2b4234496f9e2f667ba2dc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 66c327f0030ce1747843ba1f07fb3a22, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4bc7acf5dfdc7e84cbc3a3a9fc2d71c3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 98343e5e10e9c1047af986dca7e6217c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b499778f1c9fd4e4faae7fb68cad60ac, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5a805cb3fea603e4bad764e9b2d602dc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ee650c557dcd46f479dbf5988a85f30c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 50af7991a72388946a77b7b9750275d7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0679242d347de2b4cb8d87afc98eebd1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f84db1d72b2454e419346ace5bdd180c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: af7d6850c1c01a546b6ef39c8daeea6b, type: 2}
