@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 5;
+    [SerializeField] private int maxHealth = 3;
     [SerializeField] private float invulnerabilityTime = 1f;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private HeartDisplay hearts;
+
+
+
 
     private int currentHealth;
     private float nextDamageTime;
     private Animator animator;
     private Rigidbody2D rb;
+    private bool chakraInvulnerable;
 
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
@@ -23,16 +28,22 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-   
+   private void Start()
+    {
+        hearts.SetHealth(currentHealth, maxHealth);
+    }
     public void TakeDamage(int amount)
     {
+        if (chakraInvulnerable)
+            return;
+
         if (Time.time < nextDamageTime)
             return;
 
         nextDamageTime = Time.time + invulnerabilityTime;
         currentHealth -= amount;
 
-       
+        hearts.SetHealth(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -42,13 +53,18 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             animator.SetTrigger("Hurt");
-            AudioManager.Instance.PlayPickupLife();
+            AudioManager.Instance.PlayPlayerHurt();
         }
     }
 
+    public void SetChakraInvulnerable(bool value)
+    {
+        chakraInvulnerable = value;
+    }
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        hearts.SetHealth(currentHealth, maxHealth);
     } 
     private void Die()
     {

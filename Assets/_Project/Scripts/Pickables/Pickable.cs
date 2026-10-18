@@ -3,7 +3,8 @@ using UnityEngine;
 public enum PickableType
 {
     Life,
-    Ramen
+    Ramen,
+    Chakra
 }
 public class Pickable : MonoBehaviour
 {
@@ -35,6 +36,11 @@ public class Pickable : MonoBehaviour
             case PickableType.Ramen:
                 ScoreManager.Instance.AddRamen();
                 AudioManager.Instance.PlayPickupRamen();
+                break;
+
+            case PickableType.Chakra:
+                player.GetComponent<PlayerPowerUp>().Activate();
+                AudioManager.Instance.PlayChakra();
                 break;
         }
         Destroy(gameObject);

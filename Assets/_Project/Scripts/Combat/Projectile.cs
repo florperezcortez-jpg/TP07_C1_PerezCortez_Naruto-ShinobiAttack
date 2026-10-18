@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float lifetime = 2f;
-    [SerializeField] private int damage = 1;
+
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private EnemyHealth enemy;
+
+    private int damage;
+    private float speed;
 
     private void Awake()
     {
@@ -17,10 +18,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-    private void Start()
-    {
-        Destroy(gameObject, lifetime);
-    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,8 +32,13 @@ public class Projectile : MonoBehaviour
         }
 
     }
-    public void SetDirection(float direction)
+
+    public void Launch(float direction, WeaponData data)
     {
+        damage = data.damage;
+        speed = data.projectileSpeed;
+        Destroy(gameObject, data.projectileLifetime);
+
         if (rb == null)
             return;
 
@@ -44,13 +47,6 @@ public class Projectile : MonoBehaviour
         {
             sr.flipX = direction < 0f;
         }
-        if (direction < 0f)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 30f);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, -30f);
-        }
+        transform.rotation = Quaternion.Euler(0f, 0f, direction < 0f ? data.projectileTilt : -data.projectileTilt);
     }
 }
