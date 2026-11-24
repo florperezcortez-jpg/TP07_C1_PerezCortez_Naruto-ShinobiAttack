@@ -39,6 +39,8 @@ public class Pickable : MonoBehaviour
                 break;
 
             case PickableType.Chakra:
+                // Warning: GetComponent<PlayerPowerUp>() sin null check: si el jugador no tiene ese componente se lanza NullReferenceException.
+                // Usá TryGetComponent o cacheá la referencia.
                 player.GetComponent<PlayerPowerUp>().Activate();
                 AudioManager.Instance.PlayChakra();
                 break;

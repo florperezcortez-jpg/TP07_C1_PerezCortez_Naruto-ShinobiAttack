@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    // Suggestion: enemy solo se usa dentro de OnTriggerEnter2D, declaralo como variable local en vez de campo de la clase.
     private EnemyHealth enemy;
 
     private int damage;

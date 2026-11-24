@@ -32,6 +32,9 @@ public class PlayerHealth : MonoBehaviour
     {
         hearts.SetHealth(currentHealth, maxHealth);
     }
+    // Bug: No hay flag de muerto. Si el jugador sigue en contacto con un enemigo, pasado invulnerabilityTime (1 s) TakeDamage vuelve a llamar a Die(),
+    // que dispara otra vez el trigger Death y otro Invoke de GameOver (gameOverDelay es 1.5 s). Heal() también puede recargar corazones estando muerto.
+    // Agregá private bool isDead y salí al principio de TakeDamage y Heal si es true.
     public void TakeDamage(int amount)
     {
         if (chakraInvulnerable)
@@ -71,6 +74,7 @@ public class PlayerHealth : MonoBehaviour
        AudioManager.Instance.StopMusic();
         animator.SetTrigger("Death");
         rb.linearVelocity = Vector2.zero;
+        // Suggestion: Cacheá PlayerController y PlayerCombat en Awake como hacés con animator y rb, en vez de GetComponent acá.
         GetComponent<PlayerController>().enabled = false;
         GetComponent<PlayerCombat>().enabled = false;
         gameManager.GameOver();

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
+    // Suggestion: Move y Jump son campos privados en PascalCase, el resto de los campos del proyecto está en camelCase (moveAction, jumpAction).
     [SerializeField] private InputActionReference Move;
     [SerializeField] private InputActionReference Jump;
 
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
        
         if (Jump.action.WasPressedThisFrame() && isGrounded)
         {
+            // Warning: Se modifica la velocidad del Rigidbody2D desde Update. Guardá un flag jumpRequested en Update y aplicá el salto en FixedUpdate,
+            // igual que ya hacés con Movement().
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             AudioManager.Instance.PlayJump();
         }

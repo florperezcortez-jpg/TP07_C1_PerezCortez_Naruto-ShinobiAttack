@@ -29,6 +29,8 @@ public class AudioSettingsController : MonoBehaviour
 
     public void SetMasterVolume(float value)
     {
+        // Suggestion: "MasterVolume", "MusicVolume" y "SFXVolume" aparecen dos veces cada uno (Start y acá) y tienen que coincidir con ShinobiAudioMixer.mixer.
+        // Definilos como const string.
         SetVolume("MasterVolume", value);
     }
 

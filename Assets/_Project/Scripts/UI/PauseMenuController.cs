@@ -15,6 +15,8 @@ public class PauseMenuController : MonoBehaviour
 
     private bool isPaused;
 
+    // Warning: Se agregan listeners en OnEnable pero no hay OnDisable que los saque. Si el objeto se desactiva y reactiva, Resume y ReturnToMainMenu
+    // se registran dos veces. Agregá OnDisable con RemoveListener, como hiciste en GameManager y MainMenuController.
     private void OnEnable()
     {
         resumeButton.onClick.AddListener(Resume);

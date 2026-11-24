@@ -19,6 +19,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
         {
+        // Warning: FindWithTag("Player") en cada enemigo instanciado (también en RollingLog y EnemySpawner). El spawner ya tiene la referencia al jugador,
+        // pasásela al enemigo con un método tipo SetTarget(Transform) al instanciarlo.
         GameObject player = GameObject.FindWithTag("Player");
 
        if (player != null)
@@ -49,6 +51,7 @@ public class EnemyMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }
 
+        // Suggestion: -20f es un número mágico (se repite en RollingLog). Pasalo a un [SerializeField] private float killY.
         if (distance > despawnDistance || transform.position.y < -20f)
         {
             Destroy(gameObject);

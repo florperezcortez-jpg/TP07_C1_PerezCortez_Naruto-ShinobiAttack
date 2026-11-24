@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.PlayUIClick();
         Time.timeScale = 1f;
+        // Warning: Nombre de escena hardcodeado. PauseMenuController ya lo tiene como [SerializeField] mainMenuSceneName; usá el mismo criterio o un const compartido.
         SceneManager.LoadScene("MainMenu");
     }
 }

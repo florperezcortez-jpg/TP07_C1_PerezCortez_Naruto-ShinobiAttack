@@ -12,6 +12,8 @@ public class EnemyDrop : MonoBehaviour
 
     private void Start()
     {
+        // Warning: GameObject.Find por string en cada enemigo que spawnea. Además en Gameplay.unity no hay ningún objeto llamado "Pickables",
+        // así que container queda siempre en null. Pasá el contenedor desde EnemySpawner o serializalo.
         GameObject pickables = GameObject.Find("Pickables");
         if (pickables != null)
         {

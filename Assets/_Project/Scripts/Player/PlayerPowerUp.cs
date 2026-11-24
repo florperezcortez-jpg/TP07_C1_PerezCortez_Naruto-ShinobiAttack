@@ -42,6 +42,7 @@ public class PlayerPowerUp : MonoBehaviour
         endTime = Time.time + duration;
         combat.SetWeapon(chakraWeapon);
         animator.runtimeAnimatorController = chakraController;
+        // Suggestion: playerHealth no se valida como sí validás combat y animator arriba. Sumalo al chequeo de la línea del if (combat == null ...).
         playerHealth.SetChakraInvulnerable(true);
    
         if(AudioManager.Instance != null)

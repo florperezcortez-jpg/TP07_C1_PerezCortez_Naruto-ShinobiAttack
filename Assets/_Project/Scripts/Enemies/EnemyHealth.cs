@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth, maxHealth);
     }
 
+    // Bug: Si dos proyectiles entran en el mismo frame, Destroy no es inmediato y TakeDamage vuelve a llamar a Die():
+    // suma dos veces scoreValue, hace dos TryDrop e instancia dos DeathEffect. Agregá un flag isDead y retorná si ya murió.
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;

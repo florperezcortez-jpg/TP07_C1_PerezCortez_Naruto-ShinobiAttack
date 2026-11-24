@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
    public static ScoreManager Instance { get; private set; }
 
     [SerializeField] private TMP_Text scoreText;
+    // Suggestion: recordtext no respeta el camelCase del resto (scoreText, ramenText). Renombralo a recordText.
     [SerializeField] private TMP_Text recordtext;
     [SerializeField] private TMP_Text ramenText;
     [SerializeField] private int ramenPoints = 50;
@@ -26,6 +27,7 @@ public class ScoreManager : MonoBehaviour
         }
 
         Instance = this;
+        // Suggestion: La clave "Record" de PlayerPrefs se repite en AddScore. Definila como private const string RecordKey.
         record = PlayerPrefs.GetInt("Record", 0);
     }
 

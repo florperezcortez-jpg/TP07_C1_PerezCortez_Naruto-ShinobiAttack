@@ -1,5 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+// Suggestion: Este using de VisualScripting no se usa en el archivo, borralo.
 using Unity.VisualScripting.Antlr3.Runtime;
 
 public class PlayerCombat : MonoBehaviour
@@ -28,6 +29,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
+        // Bug: Con Time.timeScale = 0 (pausa o game over) Update sigue corriendo y Time.time no avanza, así que con el menú de pausa abierto
+        // se puede seguir disparando: se instancia el proyectil, suena el disparo y se dispara el trigger Attack. Chequeá que el juego no esté pausado.
         if (attack.action.WasPressedThisFrame() && Time.time >= nextFireTime)
 
         {
@@ -65,6 +68,8 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         
+        // Warning: Nombre de parámetro del Animator como string mágico ("Attack", y lo mismo "Hurt" y "Death" en PlayerHealth).
+        // Guardalo en un static readonly int con Animator.StringToHash("Attack").
         animator.SetTrigger("Attack");
         GameObject projectile = Instantiate(weapon.projectilePrefab, firePoint.position, weapon.projectilePrefab.transform.rotation);
        

@@ -43,6 +43,8 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time < nextSpawnTime)
             return;
 
+        // Bug: En Gameplay.unity enemiesParent y rollingLogsParent apuntan al mismo Transform (Enemies). Entonces los troncos cuentan como enemigos para maxEnemies
+        // y la rama de la línea de rollingLogsParent nunca se evalúa con hijos propios. Usá dos objetos contenedores distintos.
         if (enemiesParent != null && enemiesParent.childCount > 0)
         {
             if (enemiesParent.childCount < maxEnemies)
@@ -82,6 +84,7 @@ public class EnemySpawner : MonoBehaviour
     {
         side = Random.value < 0.5f ? -1f : 1f;
 
+        // Suggestion: La variable local distance no se usa, abajo se usa spawnDistance directo. Borrala.
         float distance = spawnDistance;
        
         return new Vector3(player.position.x + side * spawnDistance,
